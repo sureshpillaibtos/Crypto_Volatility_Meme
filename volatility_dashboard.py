@@ -194,7 +194,14 @@ def download_binance_ohlc(symbol, days, show_ui=True):
     }
     try:
 
-        r = requests.get(url, params=params, timeout=20)
+        headers = {
+            "User-Agent": "Mozilla/5.0"
+        }
+        r = requests.get(url, params=params, headers=headers, timeout=20)
+        st.write("Status Code:", r.status_code)
+        st.write("URL:", r.url)
+        st.write("Response:", r.text[:200])
+        
         r.raise_for_status()
         candles = r.json()
 
