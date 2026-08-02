@@ -606,6 +606,7 @@ if df.empty:
 st.divider()
 st.header("🏆 Multi Token Comparison")
 comparison_df = compare_all_tokens(days)
+st.write(comparison_df)
 comparison_df = comparison_df.sort_values(
     by="Opportunity Score",
     ascending=False
